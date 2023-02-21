@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Api : MonoBehaviour
 {
     private string api = "https://rickandmortyapi.com/api/character/";
-    private string apiFalsa = "https://my-json-server.typicode.com/Rolosky69/Consultando-Api-desde-Unity_2.0/usuarios/";
+    private string apiFalsa = "https://my-json-server.typicode.com/Rolosky69/Consultando-Api-desde-Unity_2.0/users/";
     [SerializeField] private RawImage[] images;
     private string[] baraja1, baraja2, baraja3;
     private int count;
