@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Api : MonoBehaviour
 {
     private string api = "https://rickandmortyapi.com/api/character/";
-    private string apiFalsa = "https://my-json-server.typicode.com/Rolosky69/Entrega1Sistemas/usuarios/";
+    private string apiFalsa = "https://my-json-server.typicode.com/Rolosky69/Entrega1Sistemas/db";
     [SerializeField] private RawImage[] images;
     private string[] baraja1, baraja2, baraja3;
     private int count;
@@ -105,11 +105,13 @@ public class Api : MonoBehaviour
             {
                 string responseText = www.downloadHandler.text;
 
-                Usuario[] usuarios = JsonUtility.FromJson<Usuario[]>(responseText);
+                print(responseText);
+                
+                UserList usuarios = JsonUtility.FromJson<UserList>(responseText);
 
-                baraja1 = usuarios[0].baraja.Split(",");
-                baraja2 = usuarios[1].baraja.Split(",");
-                baraja3 = usuarios[2].baraja.Split(",");
+                baraja1 = usuarios.users[0].baraja.Split(",");
+                baraja2 = usuarios.users[1].baraja.Split(",");
+                baraja3 = usuarios.users[2].baraja.Split(",");
 
             }
             else
@@ -127,6 +129,12 @@ public class Personaje
 {
     public int id;
     public string image;
+}
+
+[System.Serializable]
+public class UserList
+{
+    public Usuario[] users;
 }
 
 [System.Serializable]
